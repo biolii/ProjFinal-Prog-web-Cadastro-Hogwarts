@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Aluno</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/hogwarts_logo.png">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+</head>
+<header>
+    <a href="/"><img src="/static/images/hogwarts_logo.png" alt="Logo de Hogwarts" style="height: 200px;"></a>
+    <h1>Sistema de Matrículas de Hogwarts</h1>
+</header>
+<body>
+    <h1>Cadastrar Novo Aluno</h1>
+    <form id="cadastroForm" onsubmit="submitForm(event)">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br>
+        
+        <label for="casa">Casa:</label>
+        <select id="casa" name="casa">
+            <option value="Grifinória">Grifinória</option>
+            <option value="Sonserina">Sonserina</option>
+            <option value="Corvinal">Corvinal</option>
+            <option value="Lufa-Lufa">Lufa-Lufa</option>
+        </select><br>
+
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano" min="1" max="7"><br>
+        
+        <label for="especialidades">Matéria:</label>
+    <select id="especialidades" name="especialidades">
+        <option value="Defesa Contra as Artes das Trevas">Defesa Contra as Artes das Trevas</option>
+        <option value="Poções">Poções</option>
+        <option value="Transfiguração">Transfiguração</option>
+        <option value="Voo">Voo</option>
+        <option value="Feitiços">Feitiços</option>
+        <option value="Herbologia">Herbologia</option>
+    </select><br>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+    <a href="/">Voltar ao início</a>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); 
+            const form = document.getElementById('cadastroForm');
+            const formData = new FormData(form);
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+    
+            fetch('/cadastrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Algo deu errado no servidor');
+                }
+            })
+            .then(data => {
+                alert("Aluno cadastrado com sucesso!");
+                window.location.href = '/alunos';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Erro ao cadastrar aluno: " + error.message);
+            });
+        }
+    </script>
+</body>
+<footer>
+    <p>© 2024 Escola de M[agia e Bruxaria de Hogwarts</p>
+</footer>
+</html>

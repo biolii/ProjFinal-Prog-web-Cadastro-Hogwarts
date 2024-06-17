@@ -1,0 +1,120 @@
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #faf0e6;
+    color: #3c2f2f;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header, footer {
+    background-color: #1a001a;
+    color: #d4c0a1;
+    padding: 10px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+a {
+    color: #1a001a;
+    text-decoration: none;
+    font-size: 25px;
+    margin: 10px;
+    padding: 15px;
+    
+}
+
+footer {
+    margin-top: 430px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+form {
+    background-color: #fff8e1;
+    padding: 15px;
+    border-radius: 8px;
+    width: 500px;
+    margin: 20px auto;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="number"], input[type="password"]{
+    width:90%;
+    padding: 20px;
+    margin-top: 5px;
+    border: none;
+    background-color: #f0e5d8;
+    border-bottom: 2px solid #3c2f2f;
+    border-radius: 10px;
+}
+
+
+
+select {
+    width:98%;
+    padding: 20px;
+    margin-top: 5px;
+    border: none;
+    background-color: #f0e5d8;
+    border-bottom: 2px solid #3c2f2f;
+    border-radius: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #6b4f4f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #563838;
+}
+
+a.edit-link{
+    margin: 3px; 
+    padding: 8px 12px; 
+    background-color: #6b4f4f; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    display: inline-block; 
+}
+
+a.edit-link:hover  {
+    background-color: #563838;
+}
+
+.aluno-container {
+    padding: 30px;
+    border-radius: 10px;
+}

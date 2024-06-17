@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/hogwarts_logo.png">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+</head>
+<header>
+    <a href="/"><img src="/static/images/hogwarts_logo.png" alt="Logo de Hogwarts" style="height: 200px;"></a>
+    <h1>Sistema de Matrículas de Hogwarts</h1>
+</header>
+<body>
+    <h1>Lista de Alunos</h1>
+    <a href="/">Voltar ao início</a>
+    <ul>
+        {% for aluno in alunos %}
+        <li class="aluno-container">{{ aluno.nome }} - {{ aluno.casa }} - Ano: {{ aluno.ano }} - Matéria: {{ aluno.especialidades }}
+            <form action="/alunos/{{ aluno.id }}/delete" method="post">
+                <input type="submit" value="Delete">
+            </form>
+            <a href="/alunos/{{ aluno.id }}/edit" class="edit-link">Editar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+<footer>
+    <p>© 2024 Escola de M[agia e Bruxaria de Hogwarts</p>
+</footer>
+</html>

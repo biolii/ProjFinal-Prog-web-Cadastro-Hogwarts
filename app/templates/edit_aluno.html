@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Aluno</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/hogwarts_logo.png">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+</head>
+<header>
+    <a href="/"><img src="/static/images/hogwarts_logo.png" alt="Logo de Hogwarts" style="height: 200px;"></a>
+    <h1>Sistema de Matrículas de Hogwarts</h1>
+</header>
+<body>
+    <h1>Editar Aluno</h1>
+    <form action="/alunos/{{ aluno.id }}/update" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ aluno.nome }}"><br>
+        <label for="casa">Casa:</label>
+        <input type="text" id="casa" name="casa" value="{{ aluno.casa }}"><br>
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano" value="{{ aluno.ano }}"><br>
+        <label for="especialidades">Especialidades:</label>
+        <input type="text" id="especialidades" name="especialidades" value="{{ aluno.especialidades }}"><br>
+        <input type="submit" value="Atualizar">
+    </form>
+    <a href="/">Voltar ao início</a>
+</body>
+<footer>
+    <p>© 2024 Escola de M[agia e Bruxaria de Hogwarts</p>
+</footer>
+</html>
