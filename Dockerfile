@@ -5,10 +5,10 @@ FROM python:3.12.3
 WORKDIR /app
 
 # Copia o conteúdo do diretório atual para o diretório /app no contêiner
-COPY requirements.txt .
+COPY requirements/requirements.txt .
 
 # Instala as dependências necessárias especificadas no arquivo requirements.txt
-RUN python -m pip install --no-cache-dir -r requirements.txt
+RUN python -m pip install -r requirements.txt
 
 COPY . .
 
