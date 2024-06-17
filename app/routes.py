@@ -35,6 +35,30 @@ def show_alunos():
     alunos_list = Aluno.query.all()
     return render_template('alunos.html', alunos=alunos_list)
 
+@main.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        password2 = request.form['password2']
+        
+        if password != password2:
+            flash('As senhas não coincidem.')
+            return render_template('register.html')
+        
+        user = User.query.filter_by(username=username).first()
+        if user:
+            flash('Usuário já existe.')
+            return render_template('register.html')
+        
+        new_user = User(username=username)
+        new_user.set_password(password)
+        db.session.add(new_user)
+        db.session.commit()
+        flash('Usuário registrado com sucesso!')
+        return redirect(url_for('main.login'))
+    return render_template('register.html')
+
 @main.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar():
     if request.method == 'POST':
