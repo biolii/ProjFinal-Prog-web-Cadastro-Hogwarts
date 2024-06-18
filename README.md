@@ -17,9 +17,8 @@ Antes de iniciar, você precisará ter instalado em sua máquina as seguintes fe
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/installation/)
 - Um editor de código, eu indico [VSCode](https://code.visualstudio.com/)
 
-## Configuração do Projeto
 
-### Instalação
+### Execução
 
 Clone o repositório para sua máquina local usando:
 
@@ -28,37 +27,37 @@ git clone https://seu-repositorio.com/projeto-hogwarts.git
 cd projeto-hogwarts
 ```
 
-Instale as dependências:
+### Configuração da imagem docker
+
+**Caso não tenha o docker**
+
+Download do Docker Desktop [Docker](https://www.docker.com/)
+
+**Depois de instalado rode os seguintes comandos no terminal**
 
 ```bash
-pip install flask sqlalchemy
+docker-compose up --build -d
 ```
-**no MacOs**
+
+
+**Depois da build da imagem rode o seguinte comando no terminal**
 
 ```bash
-pip3 install flask sqlalchemy
+docker-compose logs web
 ```
 
-### Configuração do Banco de Dados
+Segurando a tecla Ctrl no seu teclado clique em "Running on http://127.0.0.1:5000"
 
-Inicialize o banco de dados com o seguinte comando:
+Pront, a aplicação estará rodando
+
+### Parando a aplicação
+
+Para parar a aplicação digite o seguinte comando no terminal
 
 ```bash
-flask shell
->>> from app import db
->>> db.create_all()
->>> exit()
+docker-compose down
 ```
 
-### Execução
-
-Para rodar o servidor, execute:
-
-```bash
-python run.py
-```
-
-Isso iniciará o servidor local no endereço `http://127.0.0.1:5000/`. Acesse o URL em um navegador de sua escolha.
 
 ## Funcionalidades
 
@@ -84,6 +83,9 @@ Isso iniciará o servidor local no endereço `http://127.0.0.1:5000/`. Acesse o 
 |       |-- /css
 |           |-- style.css
 |-- run.py
+|-- .dockerignore
+|-- docker-compose.yml
+|-- Dockerfile
 ```
 
 ## Contribuições
